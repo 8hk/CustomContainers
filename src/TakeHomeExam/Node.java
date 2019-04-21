@@ -1,10 +1,15 @@
 package TakeHomeExam;
 
 public class Node {
+	//holds the value
 	int value;
+	
+	//holds the next Node
 	Node next;
-	Node (int v, Node n) { // constructor
-	value = v;
-	next = n;
+	
+	//constructor of node class
+	Node(int v, Node n) {
+		value = v;
+		next = n;
 	}
 }
