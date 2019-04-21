@@ -2,7 +2,7 @@ package TakeHomeExam;
 
 import java.util.List;
 import TakeHomeExam.*;
-public abstract class CustomList {
+public abstract class CustomList <T> {
 	
 	//hold the data
 	List data;
@@ -21,13 +21,13 @@ public abstract class CustomList {
 	
 	
 	//sets the value of target index
-	abstract void set(int target, int value);
+	abstract void set(T target, T value);
 	
 	//gets the value of index
-	abstract int get(int index);
+	abstract T get(int index);
 	
 	//inserts the value into list
-	abstract void add (int val);
+	abstract void add (T val);
 	
 	//clears the whole list
 	abstract boolean clear();
@@ -40,5 +40,7 @@ public abstract class CustomList {
 	void log(Object str){
 		System.out.println(str.toString());
 	}
+
+
 
 }

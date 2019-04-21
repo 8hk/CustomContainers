@@ -1,14 +1,14 @@
 package TakeHomeExam;
 
-public class Node {
+public class Node <T>{
 	//holds the value
-	int value;
+	T value;
 	
 	//holds the next Node
 	Node next;
 	
 	//constructor of node class
-	Node(int v, Node n) {
+	Node(T v, Node n) {
 		value = v;
 		next = n;
 	}

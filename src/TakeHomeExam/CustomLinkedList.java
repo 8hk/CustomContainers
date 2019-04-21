@@ -1,6 +1,6 @@
 package TakeHomeExam;
 import TakeHomeExam.CustomList;
-public class CustomLinkedList extends CustomList {
+public class CustomLinkedList<T> extends CustomList <T>{
 
 	Node head =null;
 	public CustomLinkedList(int volume) {
@@ -10,7 +10,7 @@ public class CustomLinkedList extends CustomList {
 	}
 	
 	@Override
-	void add(int val) {
+	void add(T val) {
 		if(head ==null){
 			Node newNode = new Node(val,null);
 			head = newNode;
@@ -38,11 +38,11 @@ public class CustomLinkedList extends CustomList {
 	}
 
 	@Override
-	void set(int target, int value) {
+	void set(T target, T value) {
 		/* TODO
 		 * check the if list empty or not*/
 		for (Node tmp = head; tmp != null; tmp = tmp.next) {
-			if (tmp.value == target) {
+			if (tmp.value.equals(target)) {
 				tmp.value = value;
 				return;
 			}
@@ -50,7 +50,7 @@ public class CustomLinkedList extends CustomList {
 	}
 
 	@Override
-	int get(int index) {
+	T get(int index) {
 		/* TODO
 		 * check the if list empty or not*/
 		int i = 0;
@@ -59,7 +59,7 @@ public class CustomLinkedList extends CustomList {
 			tmp = tmp.next;
 			i++;
 		}
-		return tmp.value;
+		return (T) tmp.value;
 
 	}
 	@Override
@@ -76,12 +76,15 @@ public class CustomLinkedList extends CustomList {
 
 	@Override
 	void print() {
+		/*
+		 * TODO add different mode of printing
+		 */
 			Node tmpNode = head ;
 			int index = 0;
 			while (tmpNode != null) {
-				log("index: "+index+" value: "+tmpNode.value + " " );
-			index++;
-			tmpNode = tmpNode.next;
+				log("index: " + index + " value: " + tmpNode.value + " ");
+				index++;
+				tmpNode = tmpNode.next;
 			}
 			log("");
 		
@@ -90,7 +93,7 @@ public class CustomLinkedList extends CustomList {
 	
 	void insertAfter(int target, int value) {
 		for (Node tmp = head; tmp != null; tmp = tmp.next) {
-			if (tmp.value == target) {
+			if (tmp.value.equals(target)) {
 				Node node = new Node(value, tmp.next);
 				tmp.next = node;
 				return;
@@ -99,13 +102,27 @@ public class CustomLinkedList extends CustomList {
 	}
 	
 	void removeAt(int target){
-		for (Node tmp = head; tmp != null; tmp = tmp.next) {
-			if (tmp.next.value == target) {
+		int index = 1;
+		for (Node tmp = head; tmp != null && tmp.next != null; tmp = tmp.next) {
+			if(target == 0){
+				head = tmp.next;
+				return;
+			}
+			if (index == target) {
 //				Node node = new Node(value, tmp.next);
+//				if(tmp.next == null) {
+//					return;
+//				}
 				tmp.next = tmp.next.next;
 				return;
 			}
+			index++;
 		}
+	}
+	
+	void removeFirst(){
+		Node tmp = head;
+		head = tmp.next;
 	}
 
 }
