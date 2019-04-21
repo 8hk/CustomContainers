@@ -19,7 +19,6 @@ public class CustomLinkedList<T> extends CustomList <T>{
 			Node newNode = new Node(val,head);
 			head = newNode;
 		}
-		
 	}
 	
 	@Override
@@ -53,9 +52,9 @@ public class CustomLinkedList<T> extends CustomList <T>{
 	T get(int index) {
 		/* TODO
 		 * check the if list empty or not*/
-		int i = 0;
+		int i = 1;
 		Node tmp = head;
-		while(i!=0){
+		while(i != index){
 			tmp = tmp.next;
 			i++;
 		}
@@ -91,13 +90,16 @@ public class CustomLinkedList<T> extends CustomList <T>{
 		
 	}
 	
-	void insertAfter(int target, int value) {
+	void insertAfter(int target, T value) {
 		for (Node tmp = head; tmp != null; tmp = tmp.next) {
 			if (tmp.value.equals(target)) {
 				Node node = new Node(value, tmp.next);
 				tmp.next = node;
 				return;
 			}
+		}
+		if(target == 0) {
+			add(value);
 		}
 	}
 	
@@ -124,5 +126,6 @@ public class CustomLinkedList<T> extends CustomList <T>{
 		Node tmp = head;
 		head = tmp.next;
 	}
-
+	
+	
 }
