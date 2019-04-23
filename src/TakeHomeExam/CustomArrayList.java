@@ -18,6 +18,7 @@ public class CustomArrayList<T> extends CustomList<T> {
 	
 
 	@Override
+	protected
 	int size() {
 		return size;
 	}
@@ -31,12 +32,14 @@ public class CustomArrayList<T> extends CustomList<T> {
 
 
 	@Override
+	protected
 	T get(int index) {
 		return (T) data[index];
 	}
 
 
 	@Override
+	protected
 	void add(T val) {
 		if(this.index==this.size-1){
 			increaseSize();
@@ -60,6 +63,7 @@ public class CustomArrayList<T> extends CustomList<T> {
 
 
 	@Override
+	protected
 	void print() {
 		for (int i =0;i<size-1;i++){
 			System.out.println((data[i]).toString());
@@ -68,7 +72,7 @@ public class CustomArrayList<T> extends CustomList<T> {
 	
 	
 	
-void removeAt(int target){
+protected void removeAt(int target){
 	CustomArrayList temp = new CustomArrayList();
 	int j = 0;
 	for (int i = 0; i < size; i++) {
@@ -107,7 +111,7 @@ void copyObj(CustomArrayList target){
 
 
 	
-void insertAfter(int target, T value) {
+protected void insertAfter(int target, T value) {
 	CustomArrayList temp = new CustomArrayList();
 	int j = 0;
 	for (int i = 0; i < size; i++) {
@@ -132,11 +136,11 @@ void insertAfter(int target, T value) {
 	
 	
 	
-void removeFirst() {
+protected void removeFirst() {
 	removeAt(0);
 }
 	
-private void increaseSize() {
+protected void increaseSize() {
 	this.size = this.size + VOLUME;
 	Object newData[] = new Object[this.size];
 	for (int i = 0; i < data.length; i++) {
