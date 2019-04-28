@@ -1,11 +1,11 @@
 package HW2;
 
-public class BinaryNode{
-	private BinaryNode left;
-	private BinaryNode right;
-	private Integer data;
+public class BinaryNode<T extends Comparable<T>>{
+	private BinaryNode <T> left;
+	private BinaryNode <T> right;
+	private T data;
 
-	public BinaryNode(Integer data) {
+	public BinaryNode (T data) {
 		this.data = data;
 	}
 
@@ -13,34 +13,34 @@ public class BinaryNode{
 		return left;
 	}
 
-	public void setLeft(BinaryNode left) {
+	public void setLeft(BinaryNode <T> left) {
 		this.left = left;
 	}
 
-	public BinaryNode getRight() {
+	public BinaryNode <T> getRight() {
 		return right;
 	}
 
-	public void setRight(BinaryNode right) {
+	public void setRight(BinaryNode <T> right) {
 		this.right = right;
 	}
 
-	public Integer getData() {
+	public T getData() {
 		return data;
 	}
 
-	public void setData(Integer data) {
+	public void setData(T data) {
 		this.data = data;
 	}
 
-	public boolean remove(int value, BinaryNode parent) {
+	public boolean remove(T value, BinaryNode <T> parent) {
 
-		if (value < this.data) {
+		if (this.data.compareTo(value)< 0) {
 			if (left != null)
 				return left.remove(value, this);
 			else
 				return false;
-		} else if (value > this.data) {
+		} else if (this.data.compareTo(value)< 0) {
 			if (right != null)
 				return right.remove(value, this);
 			else
@@ -58,12 +58,26 @@ public class BinaryNode{
 		}
 	}
 
-	public int minValue() {
+	public T minValue() {
 		if (left == null)
 			return data;
 		else
 			return left.minValue();
 
+	}
+	
+	public int compareTo(Object o) {
+	    if(!(o instanceof BinaryNode )) throw new IllegalArgumentException();
+	    String n1 = ((String) this.data).toLowerCase();
+	    String n2 = ((String) ((BinaryNode) o).data).toLowerCase();
+	    for(int i = 0; i< n1.length() && i< n2.length() ; i++ ){
+	        if(n1.charAt(i) > n2.charAt(i)) return 1;
+	        if(n2.charAt(i) > n1.charAt(i)) return -1;
+	    }
+	    if(n1.length() > n2.length()) return -1;
+	    if(n2.length() > n1.length()) return 1;
+
+	    return 0;
 	}
 
 }
