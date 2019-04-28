@@ -65,7 +65,7 @@ public class BSTree<T extends Comparable<T>>  {
 
 		if (data.compareTo(root.getData()) < 0) {
 			root.setLeft(deleteNode(root.getLeft(), data));
-		} else if (root.getData().compareTo(data) <0 ) {
+		} else if (root.getData().compareTo(data) < 0 ) {
 			root.setRight(deleteNode(root.getRight(), data));
 		} else {
 			// node with no leaf nodes
@@ -107,8 +107,11 @@ public class BSTree<T extends Comparable<T>>  {
 
 	private void doInOrder(BinaryNode <T> root) {
 
-		if (root == null)
+		if (root == null){
+			System.out.println("");
 			return;
+		}
+			
 		doInOrder(root.getLeft());
 		System.out.print(root.getData() + " ");
 		doInOrder(root.getRight());
