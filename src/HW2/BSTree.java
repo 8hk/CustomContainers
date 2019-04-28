@@ -2,19 +2,19 @@ package HW2;
 
 import HW2.BinaryNode;
 
-public class BSTree {
-	private BinaryNode root;
+public class BSTree<T extends Comparable<T>>  {
+	private BinaryNode <T> root;
 
 	public boolean isEmpty() {
 
 		return (this.root == null);
 	}
 
-	public BinaryNode getRoot() {
+	public BinaryNode <T> getRoot() {
 		return this.root;
 	}
 
-	public void insert(Integer data) {
+	public void insert(T data) {
 
 		System.out.print("[input: " + data + "]");
 		if (root == null) {
@@ -28,14 +28,14 @@ public class BSTree {
 		System.out.println();
 	}
 
-	private BinaryNode insertNode(BinaryNode root, Integer data) {
+	private BinaryNode <T> insertNode(BinaryNode <T> root, T data) {
 
-		BinaryNode tmpNode = null;
+		BinaryNode <T> tmpNode = null;
 		System.out.print(" ->" + root.getData());
-		if (root.getData() >= data) {
+		if (root.getData().compareTo(data) >=0) {
 			System.out.print(" [L]");
 			if (root.getLeft() == null) {
-				root.setLeft(new BinaryNode(data));
+				root.setLeft(new BinaryNode <T>(data));
 				return root.getLeft();
 			} else {
 				tmpNode = root.getLeft();
@@ -43,7 +43,7 @@ public class BSTree {
 		} else {
 			System.out.print(" [R]");
 			if (root.getRight() == null) {
-				root.setRight(new BinaryNode(data));
+				root.setRight(new BinaryNode <T>(data));
 				return root.getRight();
 			} else {
 				tmpNode = root.getRight();
@@ -53,19 +53,19 @@ public class BSTree {
 		return insertNode(tmpNode, data);
 	}
 
-	public void delete(Integer data) {
+	public void delete(T data) {
 
 		deleteNode(this.root, data);
 	}
 
-	private BinaryNode deleteNode(BinaryNode root, Integer data) {
+	private BinaryNode <T> deleteNode(BinaryNode <T> root, T data) {
 
 		if (root == null)
 			return root;
 
-		if (data < root.getData()) {
+		if (data.compareTo(root.getData()) < 0) {
 			root.setLeft(deleteNode(root.getLeft(), data));
-		} else if (data > root.getData()) {
+		} else if (root.getData().compareTo(data) <0 ) {
 			root.setRight(deleteNode(root.getRight(), data));
 		} else {
 			// node with no leaf nodes
@@ -83,7 +83,7 @@ public class BSTree {
 			} else {
 				// nodes with two nodes
 				// search for min number in right sub tree
-				Integer minValue = minValue(root.getRight());
+				T minValue = minValue(root.getRight());
 				root.setData(minValue);
 				root.setRight(deleteNode(root.getRight(), minValue));
 				System.out.println("deleting " + data);
@@ -93,10 +93,10 @@ public class BSTree {
 		return root;
 	}
 
-	private Integer minValue(BinaryNode node) {
+	private T minValue(BinaryNode <T> node) {
 
 		if (node.getLeft() != null) {
-			return minValue(node.getLeft());
+			return (T) minValue(node.getLeft());
 		}
 		return node.getData();
 	}
@@ -105,7 +105,7 @@ public class BSTree {
 		doInOrder(this.root);
 	}
 
-	private void doInOrder(BinaryNode root) {
+	private void doInOrder(BinaryNode <T> root) {
 
 		if (root == null)
 			return;
@@ -114,12 +114,12 @@ public class BSTree {
 		doInOrder(root.getRight());
 	}
 
-	public boolean remove(int value) {
+	public boolean remove(T value) {
 		if (root == null)
 			return false;
 		else {
 			if (root.getData() == value) {
-				BinaryNode auxRoot = new BinaryNode(0);
+				BinaryNode <T> auxRoot = new BinaryNode ("");
 				auxRoot.setLeft(root);
 				boolean result = root.remove(value, auxRoot);
 				root = auxRoot.getLeft();
