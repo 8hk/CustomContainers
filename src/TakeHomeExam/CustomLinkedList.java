@@ -50,8 +50,10 @@ public class CustomLinkedList<T> extends CustomList <T>{
 
 	@Override
 	T get(int index) {
-		/* TODO
-		 * check the if list empty or not*/
+		if(head == null){ 
+			log("linked list empty please insert some item");
+			return null;
+		}
 		int i = 1;
 		Node tmp = head;
 		while(i != index){
