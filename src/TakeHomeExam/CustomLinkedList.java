@@ -56,7 +56,7 @@ public class CustomLinkedList<T> extends CustomList <T>{
 		}
 		int i = 1;
 		Node tmp = head;
-		while(i != index){
+		while(i != index && index != 0){
 			tmp = tmp.next;
 			i++;
 		}
