@@ -41,7 +41,7 @@ public class CustomArrayList<T> extends CustomList<T> {
 	}
 	//clears whole list
 	@Override
-	boolean clear() {
+	protected boolean clear() {
 		for (int i = 0; i < size - 1; i++) {
 			if (data[i] != null) {
 				data[i] = null;
@@ -54,7 +54,8 @@ public class CustomArrayList<T> extends CustomList<T> {
 	@Override
 	protected void print() {
 		for (int i = 0; i < size - 1; i++) {
-			System.out.println((data[i]).toString());
+			if(data[i] != null) System.out.println((data[i]).toString());
+			else System.out.println("list is empty please fill it with proper data");
 		}
 	}
 	//removes the value at targeted index
