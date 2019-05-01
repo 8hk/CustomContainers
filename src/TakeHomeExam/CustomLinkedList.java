@@ -100,6 +100,7 @@ public class CustomLinkedList<T> extends CustomList <T>{
 		
 	}
 	
+	@Override
 	void insertAfter(int target, T value) {
 		for (Node tmp = head; tmp != null; tmp = tmp.next) {
 			if (tmp.value.equals(target)) {
@@ -113,6 +114,7 @@ public class CustomLinkedList<T> extends CustomList <T>{
 		}
 	}
 	
+	@Override	
 	void removeAt(int target){
 		int index = 1;
 		for (Node tmp = head; tmp != null && tmp.next != null; tmp = tmp.next) {
@@ -132,6 +134,7 @@ public class CustomLinkedList<T> extends CustomList <T>{
 		}
 	}
 	
+	@Override
 	void removeFirst(){
 		Node tmp = head;
 		head = tmp.next;

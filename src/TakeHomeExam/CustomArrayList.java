@@ -71,7 +71,7 @@ public class CustomArrayList<T> extends CustomList<T> {
 	}
 	
 	
-	
+	@Override
 protected void removeAt(int target){
 	CustomArrayList temp = new CustomArrayList();
 	int j = 0;
@@ -110,8 +110,8 @@ void copyObj(CustomArrayList target){
 
 
 
-	
-protected void insertAfter(int target, T value) {
+	@Override
+	protected void insertAfter(int target, T value) {
 	CustomArrayList temp = new CustomArrayList();
 	int j = 0;
 	for (int i = 0; i < size; i++) {
@@ -135,12 +135,12 @@ protected void insertAfter(int target, T value) {
 }
 	
 	
-	
-protected void removeFirst() {
+	@Override
+	protected void removeFirst() {
 	removeAt(0);
 }
 	
-protected void increaseSize() {
+	protected void increaseSize() {
 	this.size = this.size + VOLUME;
 	Object newData[] = new Object[this.size];
 	for (int i = 0; i < data.length; i++) {

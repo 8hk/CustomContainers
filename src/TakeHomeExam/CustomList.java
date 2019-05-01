@@ -35,6 +35,14 @@ public abstract class CustomList <T> {
 	//prints the whole list
 	abstract void print();
 	
+	//inserts the value at target index
+	abstract void insertAfter(int target, T value);
+	
+	//remove the value at target index
+	abstract void removeAt(int target);
+	
+	//removes first value 
+	abstract void removeFirst();
 	
 	//shorcut call for System.out.println
 	public void log(Object str){
