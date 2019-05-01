@@ -35,12 +35,12 @@ public class CustomLinkedList<T> extends CustomList <T>{
 	//changes the targeted value by given value by searching the targeted element in the list
 	@Override
 	void set(T target, T value) {
-		/* TODO
-		 * check the if list empty or not*/
-		for (Node tmp = head; tmp != null; tmp = tmp.next) {
-			if (tmp.value.equals(target)) {
-				tmp.value = value;
-				return;
+		if (head.next != null) {
+			for (Node tmp = head; tmp != null; tmp = tmp.next) {
+				if (tmp.value.equals(target)) {
+					tmp.value = value;
+					return;
+				}
 			}
 		}
 	}
@@ -76,9 +76,6 @@ public class CustomLinkedList<T> extends CustomList <T>{
 	//prints the whole list by searchin whole list
 	@Override
 	void print() {
-		/*
-		 * TODO add different mode of printing
-		 */
 		Node tmpNode = head ;
 		if(tmpNode == null) {
 			log(this.getClass().toString()+" list is empty");
