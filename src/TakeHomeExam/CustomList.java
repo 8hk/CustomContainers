@@ -37,7 +37,7 @@ public abstract class CustomList <T> {
 	
 	
 	//shorcut call for System.out.println
-	void log(Object str){
+	public void log(Object str){
 		System.out.println(str.toString());
 	}
 
