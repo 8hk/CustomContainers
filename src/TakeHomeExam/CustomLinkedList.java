@@ -73,7 +73,7 @@ public class CustomLinkedList<T> extends CustomList <T>{
 		log(this.getClass().toString()+"list is empty now");
 		return true;
 	}
-	//prints the whole list
+	//prints the whole list by searchin whole list
 	@Override
 	void print() {
 		/*
