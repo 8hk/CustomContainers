@@ -3,12 +3,13 @@ import TakeHomeExam.CustomList;
 public class CustomLinkedList<T> extends CustomList <T>{
 
 	Node head =null;
+	//constructor of CustomLinkedList
 	public CustomLinkedList(int volume) {
 		this.volume = volume;
 		log("Custom Linked List created");
 		log("size is: "+volume);
 	}
-	
+	//insert new node at beginning
 	@Override
 	void add(T val) {
 		if(head ==null){
@@ -20,9 +21,8 @@ public class CustomLinkedList<T> extends CustomList <T>{
 			head = newNode;
 		}
 	}
-	
+	//calculates the size of linked list by moving start to end.
 	@Override
-	
 	int size() {
 		int size = 0;
 		Node tmp =head;
@@ -32,7 +32,7 @@ public class CustomLinkedList<T> extends CustomList <T>{
 		}
 		return size;
 	}
-
+	//changes the targeted value by given value by searching the targeted element in the list
 	@Override
 	void set(T target, T value) {
 		/* TODO
@@ -44,7 +44,7 @@ public class CustomLinkedList<T> extends CustomList <T>{
 			}
 		}
 	}
-
+	// get the value of index by iterating until desired index
 	@Override
 	T get(int index) {
 		if(head == null){ 
@@ -60,6 +60,7 @@ public class CustomLinkedList<T> extends CustomList <T>{
 		return (T) tmp.value;
 
 	}
+	//clears whole list
 	@Override
 	boolean clear() {
 		Node tmp = head;
@@ -72,7 +73,7 @@ public class CustomLinkedList<T> extends CustomList <T>{
 		log(this.getClass().toString()+"list is empty now");
 		return true;
 	}
-
+	//prints the whole list
 	@Override
 	void print() {
 		/*
@@ -86,17 +87,14 @@ public class CustomLinkedList<T> extends CustomList <T>{
 			
 			int index = 0;
 			while (tmpNode != null) {
-				log("index: " + index + " value: " + tmpNode.value + " ");
 				index++;
+				log("index: " + index + " value: " + tmpNode.value + " ");
 				tmpNode = tmpNode.next;
 			}
 			log("");
 			
-			
-		
-		
 	}
-	
+	//insert the value at desired target
 	@Override
 	void insertAfter(int target, T value) {
 		Node tmp = head;
@@ -111,7 +109,7 @@ public class CustomLinkedList<T> extends CustomList <T>{
 			add(value);
 		}
 	}
-	
+	//removes the value at targeted index
 	@Override	
 	void removeAt(int target){
 		int index = 1;
@@ -121,22 +119,16 @@ public class CustomLinkedList<T> extends CustomList <T>{
 				return;
 			}
 			if (index == target) {
-//				Node node = new Node(value, tmp.next);
-//				if(tmp.next == null) {
-//					return;
-//				}
 				tmp.next = tmp.next.next;
 				return;
 			}
 			index++;
 		}
 	}
-	
+	//removes the head
 	@Override
 	void removeFirst(){
 		Node tmp = head;
 		head = tmp.next;
 	}
-	
-	
 }
