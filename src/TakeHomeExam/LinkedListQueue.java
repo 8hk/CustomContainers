@@ -16,5 +16,16 @@ public class LinkedListQueue <T> extends CustomLinkedList<T>{
 		removeAt(size-1);
 		return temp;
 	}
+	@Override
+	boolean clear() {
+		int size = size();
+		while(size>=-0){
+			dequeue();
+			size--;
+		}
+		removeFirst();
+		return true;
+	}
+	
 
 }
