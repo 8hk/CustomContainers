@@ -3,17 +3,21 @@ package HW2;
 import HW2.BinaryNode;
 
 public class BSTree<T extends Comparable<T>>  {
+	
 	private BinaryNode <T> root;
 
+	//check if tree is empty
 	public boolean isEmpty() {
 
 		return (this.root == null);
 	}
-
+	
+	//root getter
 	public BinaryNode <T> getRoot() {
 		return this.root;
 	}
 
+	//high level method to insert given data into tree
 	public void insert(T data) {
 
 		System.out.print("[input: " + data + "]");
@@ -28,6 +32,7 @@ public class BSTree<T extends Comparable<T>>  {
 		System.out.println();
 	}
 
+	//arranges the tree for being proper design  -- left side value lower than root
 	private BinaryNode <T> insertNode(BinaryNode <T> root, T data) {
 
 		BinaryNode <T> tmpNode = null;
@@ -52,12 +57,19 @@ public class BSTree<T extends Comparable<T>>  {
 
 		return insertNode(tmpNode, data);
 	}
-
+	
+	//high level method to delete node
 	public void delete(T data) {
 
 		deleteNode(this.root, data);
 	}
-
+	/*there are 3 important strange cases we should consider
+	 * 1 ) deleting a node that has no children. just link the node to null and DONE
+	 * 2 ) deleting a node that has 1 child. cut the line between node and 
+	 * root & and make new connection between root and child
+	 * 3 )  deleting a node that has 12 little children. find lowest value of right tree and assign it as root
+	 * and make swap operation until tree has proper allign
+	 * */
 	private BinaryNode <T> deleteNode(BinaryNode <T> root, T data) {
 
 		if (root == null)
@@ -92,7 +104,7 @@ public class BSTree<T extends Comparable<T>>  {
 
 		return root;
 	}
-
+	//finds the min value of tree
 	private T minValue(BinaryNode <T> node) {
 
 		if (node.getLeft() != null) {
@@ -100,14 +112,16 @@ public class BSTree<T extends Comparable<T>>  {
 		}
 		return node.getData();
 	}
-
+	//high levvl method ordering traversal 
 	public void inOrderTraversal() {
 		doInOrder(this.root);
 	}
-
+	
+	//ordering the tree properly
 	private void doInOrder(BinaryNode <T> root) {
 
 		if (root == null){
+			//when it finishes print empty line
 			System.out.println("");
 			return;
 		}
@@ -116,16 +130,16 @@ public class BSTree<T extends Comparable<T>>  {
 		System.out.print(root.getData() + " ");
 		doInOrder(root.getRight());
 	}
-
+	//removes the given value from tree by searching the value 
 	public boolean remove(T value) {
 		if (root == null)
 			return false;
 		else {
 			if (root.getData() == value) {
-				BinaryNode <T> auxRoot = new BinaryNode ("");
-				auxRoot.setLeft(root);
-				boolean result = root.remove(value, auxRoot);
-				root = auxRoot.getLeft();
+				BinaryNode <T> pirateRoot = new BinaryNode ("");
+				pirateRoot.setLeft(root);
+				boolean result = root.remove(value, pirateRoot);
+				root = pirateRoot.getLeft();
 				return result;
 			} else {
 				return root.remove(value, null);
