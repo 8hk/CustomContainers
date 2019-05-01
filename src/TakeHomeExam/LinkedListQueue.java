@@ -19,7 +19,7 @@ public class LinkedListQueue <T> extends CustomLinkedList<T>{
 	@Override
 	boolean clear() {
 		int size = size();
-		while(size>=-0){
+		while(size>=0){
 			dequeue();
 			size--;
 		}
