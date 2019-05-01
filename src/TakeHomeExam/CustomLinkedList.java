@@ -22,6 +22,7 @@ public class CustomLinkedList<T> extends CustomList <T>{
 	}
 	
 	@Override
+	
 	int size() {
 		int size = 0;
 		Node tmp =head;
@@ -29,10 +30,6 @@ public class CustomLinkedList<T> extends CustomList <T>{
 			tmp = tmp.next;
 			size++;
 		}
-//		for (Node tmp = head; tmp == null; tmp = tmp.next) {
-//			
-//			size ++;
-//		}
 		return size;
 	}
 
@@ -102,8 +99,9 @@ public class CustomLinkedList<T> extends CustomList <T>{
 	
 	@Override
 	void insertAfter(int target, T value) {
-		for (Node tmp = head; tmp != null; tmp = tmp.next) {
-			if (tmp.value.equals(target)) {
+		Node tmp = head;
+		for ( int i = 0;i<size();i++) {
+			if (i==target) {
 				Node node = new Node(value, tmp.next);
 				tmp.next = node;
 				return;
