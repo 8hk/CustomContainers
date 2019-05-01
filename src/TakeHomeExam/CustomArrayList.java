@@ -1,6 +1,7 @@
 package TakeHomeExam;
 
 public class CustomArrayList<T> extends CustomList<T> {
+	
 	protected Object data[];
 
 	protected int index;
@@ -8,6 +9,7 @@ public class CustomArrayList<T> extends CustomList<T> {
 	protected int size;
 
 	protected static final int VOLUME = 1;
+	
 	//constructor of CustomLinkedList
 	public CustomArrayList() {
 		this.data = new Object[VOLUME];
