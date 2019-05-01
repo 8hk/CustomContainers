@@ -72,6 +72,7 @@ public class CustomLinkedList<T> extends CustomList <T>{
 			head =null;
 			
 		}
+		log(this.getClass().toString()+"list is empty now");
 		return true;
 	}
 
