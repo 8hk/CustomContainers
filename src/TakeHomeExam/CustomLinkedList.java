@@ -81,7 +81,12 @@ public class CustomLinkedList<T> extends CustomList <T>{
 		/*
 		 * TODO add different mode of printing
 		 */
-			Node tmpNode = head ;
+		Node tmpNode = head ;
+		if(tmpNode == null) {
+			log(this.getClass().toString()+" list is empty");
+			return;
+		}
+			
 			int index = 0;
 			while (tmpNode != null) {
 				log("index: " + index + " value: " + tmpNode.value + " ");
@@ -89,6 +94,8 @@ public class CustomLinkedList<T> extends CustomList <T>{
 				tmpNode = tmpNode.next;
 			}
 			log("");
+			
+			
 		
 		
 	}
