@@ -5,7 +5,6 @@ public class LinkedListQueue <T> extends CustomLinkedList<T>{
 	//constructor of LinkedListQueue
 	public LinkedListQueue(int volume) {
 		super(volume);
-		// TODO Auto-generated constructor stub
 	}
 	
 	///inserts the given value in list

@@ -10,8 +10,9 @@ import TakeHomeExam.*;
 public class TakeHomeHw {
 
 	public static void main(String[] args) {
-		
-		System.out.println("******** CustomLinkedList Integer ********");
+		log("******************************************");
+		log("******** CustomLinkedList Integer ********");
+		log("******************************************");
 		CustomLinkedList <Integer >list= new CustomLinkedList(0);
 		System.out.println(list.size());
 		list.add(1);
@@ -19,7 +20,7 @@ public class TakeHomeHw {
 		list.add(5);
 		list.add(6);
 		list.print();
-		list.removeAt(5);
+		list.removeAt(2);
 		list.print();
 		list.removeAt(1);
 		list.print();
@@ -38,8 +39,9 @@ public class TakeHomeHw {
 		log(list.size());
 		
 		
-		
+		log("*****************************************");
 		log("******** CustomLinkedList String ********");
+		log("*****************************************");
 		CustomLinkedList <String > StringList= new CustomLinkedList(0);
 		log("******** CustomLinkedList String ********");
 		StringList.add("Mete Han");
@@ -58,8 +60,9 @@ public class TakeHomeHw {
 		StringList.print();
 		log(StringList.size());
 		
-		
+		log("****************************************");
 		log("******** LinkedListStack String ********");
+		log("****************************************");
 		LinkedListStack <String> StringStack = new LinkedListStack<String>(0);
 		StringStack.push("FSM");
 		StringStack.print();
@@ -72,8 +75,9 @@ public class TakeHomeHw {
 		StringStack.print();
 		StringStack.clear();
 		StringStack.print();
-		
+		log("****************************************");
 		log("******** LinkedListQueue String ********");
+		log("****************************************");
 		LinkedListQueue <String> q = new LinkedListQueue<String>(0);
 		q.enqueue("Timur");
 		q.enqueue("Atatürk");
@@ -85,8 +89,9 @@ public class TakeHomeHw {
 		q.clear();
 		q.print();
 		log(q.size());
-		
+		log("*********************************");
 		log("******** CustomArrayList ********");
+		log("*********************************");
 		CustomArrayList<String> arrayl = new CustomArrayList<String>();
 		arrayl.add("Osman");
 		arrayl.add("Giray");
@@ -97,8 +102,9 @@ public class TakeHomeHw {
 		arrayl.print();
 		log(arrayl.get(2));
 		
-		
+		log("********************************");
 		log("******** ArrayListStack ********");
+		log("********************************");
 		ArrayListStack<Integer> arrayStack = new ArrayListStack<Integer>();
 		arrayStack.push(3);
 		arrayStack.push(1);
@@ -108,8 +114,9 @@ public class TakeHomeHw {
 		log("poped: "+arrayStack.pop());
 		arrayStack.clear();
 		arrayStack.print();
-	
+		log("********************************");
 		log("******** ArrayListQueue ********");
+		log("********************************");
 		ArrayListQueue <String> arrayq = new ArrayListQueue<String>();
 		arrayq.enqueue("Cihangir");
 		arrayq.enqueue("Cengiz");
@@ -119,8 +126,9 @@ public class TakeHomeHw {
 		arrayq.clear();
 		arrayq.print();
 		
-		
+		log("**********************************");
 		log("******** BSTree <Integer> ********");
+		log("**********************************");
 		BSTree<Integer> tree = new BSTree<Integer>();
 		tree.insert(10);
 		tree.insert(1);
@@ -130,8 +138,9 @@ public class TakeHomeHw {
 		tree.inOrderTraversal();
 		tree.delete(8);
 		tree.inOrderTraversal();
-		
+		log("*********************************");
 		log("******** BSTree <String> ********");
+		log("*********************************");
 		BSTree<String> tree2 = new BSTree<String>();
 		tree2.insert("Cihandar");
 		tree2.insert("Humayun");

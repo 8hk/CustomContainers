@@ -46,8 +46,8 @@ public class BinaryNode<T extends Comparable<T>>{
 	 * 1 ) deleting a node that has no children. just link the node to null and DONE
 	 * 2 ) deleting a node that has 1 child. cut the line between node and 
 	 * root & and make new connection between root and child
-	 * 3 )  deleting a node that has 12 little children. find lowest value of right tree and assign it as root
-	 * and make swap operation until tree has proper allign
+	 * 3 )  deleting a node that has 2 little children. find lowest value of right tree &
+	 * replace its value with removing value, delete lowest value node from right tree
 	 * */
 	public boolean remove(T value, BinaryNode <T> parent) {
 

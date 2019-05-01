@@ -20,7 +20,7 @@ public class BSTree<T extends Comparable<T>>  {
 	//high level method to insert given data into tree
 	public void insert(T data) {
 
-		System.out.print("[input: " + data + "]");
+		System.out.print("{{input: " + data + "}}");
 		if (root == null) {
 			this.root = new BinaryNode(data);
 			System.out.println(" -> inserted: " + data);
@@ -36,9 +36,9 @@ public class BSTree<T extends Comparable<T>>  {
 	private BinaryNode <T> insertNode(BinaryNode <T> root, T data) {
 
 		BinaryNode <T> tmpNode = null;
-		System.out.print(" ->" + root.getData());
+		System.out.print(" -> " + root.getData());
 		if (root.getData().compareTo(data) >=0) {
-			System.out.print(" [L]");
+			System.out.print(" {L}");
 			if (root.getLeft() == null) {
 				root.setLeft(new BinaryNode <T>(data));
 				return root.getLeft();
@@ -46,7 +46,7 @@ public class BSTree<T extends Comparable<T>>  {
 				tmpNode = root.getLeft();
 			}
 		} else {
-			System.out.print(" [R]");
+			System.out.print(" {R}");
 			if (root.getRight() == null) {
 				root.setRight(new BinaryNode <T>(data));
 				return root.getRight();
@@ -67,8 +67,8 @@ public class BSTree<T extends Comparable<T>>  {
 	 * 1 ) deleting a node that has no children. just link the node to null and DONE
 	 * 2 ) deleting a node that has 1 child. cut the line between node and 
 	 * root & and make new connection between root and child
-	 * 3 )  deleting a node that has 12 little children. find lowest value of right tree and assign it as root
-	 * and make swap operation until tree has proper allign
+	 * 3 )  deleting a node that has 2 little children. find lowest value of right tree &
+	 * replace its value with removing value, delete lowest value node from right tree
 	 * */
 	private BinaryNode <T> deleteNode(BinaryNode <T> root, T data) {
 
