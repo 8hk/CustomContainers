@@ -5,14 +5,14 @@ import TakeHomeExam.*;
 public abstract class CustomList <T> {
 	
 	//hold the data
-	List data;
+	protected List data;
 	
 	
 	//holds the size of list
-	int volume;
+	protected int volume;
 	
 	//constructor of list
-	CustomList(){
+	public CustomList(){
 		log("Custom List created");
 	}
 	
