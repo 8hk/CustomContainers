@@ -24,7 +24,7 @@ public class TakeHomeHw {
 		list.print();
 		list.removeAt(1);
 		list.print();
-		list.insertAfter(4, 2);
+//		list.insertAfter(4, 2);
 		list.print();
 		list.removeAt(2);
 		list.set(6, 12);
